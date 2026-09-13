@@ -14,10 +14,23 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: SplashScreen(),
+        textTheme: TextTheme(
+          titleLarge: TextStyle(
+            fontSize: 25,
+            fontWeight: FontWeight.w600,
+          )
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          fillColor: Colors.white,
+          filled: true,
+          hintStyle: TextStyle(fontSize: 16,color: Colors.grey.shade500),
+          enabledBorder: OutlineInputBorder(borderSide: BorderSide.none),
+        ),
       
+      ),
+      
+      home: SplashScreen(),
+
     );
   }
 }

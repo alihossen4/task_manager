@@ -27,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
             SizedBox(height: 25,),
             TextFormField(
               decoration: InputDecoration(
-              contentPadding: .all(5),
+              contentPadding: .all(8),
                 hintText: "Email",
               ),
             ),
@@ -35,13 +35,19 @@ class _LoginScreenState extends State<LoginScreen> {
             TextFormField(
               obscureText: true,
               decoration: InputDecoration(
-                contentPadding: .all(5),
+                contentPadding: .all(8),
                 hintText: "Password",
               ),
             ),
-              SizedBox(height: 10,),
+              SizedBox(height: 12,),
             FilledButton(onPressed: (){}, 
-             style: FilledButton.styleFrom(iconColor: Colors.white,backgroundColor: Colors.green,iconSize: 20,padding: .symmetric(horizontal: 1)),
+             style: FilledButton.styleFrom(iconColor: Colors.white,backgroundColor: Colors.green,
+             iconSize: 30,padding: .symmetric(horizontal: 1,vertical: 12), 
+             fixedSize: Size.fromWidth(double.maxFinite), 
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              )
+             ),
              child: Icon(Icons.arrow_circle_right_outlined),),
               SizedBox(height: 8,),
             Column(children: [
