@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:task_management/screens/signup_screen.dart';
 import 'package:task_management/widget/screen_bg.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -9,6 +11,10 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+
+  onTapMove(){
+    Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUpScreen()));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,6 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     TextSpan(
                       text: "Sign Up",
                       style: TextStyle(color: Colors.green.shade300,fontSize: 16),
+                      recognizer: TapGestureRecognizer()..onTap = onTapMove
                     )
                   ]
                 ),
