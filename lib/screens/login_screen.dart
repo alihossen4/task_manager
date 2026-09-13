@@ -20,7 +20,10 @@ class _LoginScreenState extends State<LoginScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
             SizedBox(height: 150,),
-            Text("Get Started With", style: Theme.of(context).textTheme.titleLarge, textAlign: TextAlign.center,),
+            Text("Get Started With", style: Theme.of(context).textTheme.titleLarge!.copyWith(
+              fontWeight: FontWeight.bold,
+              fontSize: 25,
+            ), textAlign: TextAlign.center,),
             SizedBox(height: 25,),
             TextFormField(
               decoration: InputDecoration(
@@ -45,13 +48,14 @@ class _LoginScreenState extends State<LoginScreen> {
 
               TextButton(onPressed: (){},child: Text("Forget Password?",style: TextStyle(color: Colors.lightGreen, fontSize: 18,),),),
               RichText(
+                
                 text: TextSpan(
                   text: "Don't Have a Account? ",
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyle(color: Colors.black,fontSize: 16),
                   children: [
                     TextSpan(
                       text: "Sign Up",
-                      style: TextStyle(color: Colors.green.shade300),
+                      style: TextStyle(color: Colors.green.shade300,fontSize: 16),
                     )
                   ]
                 ),
