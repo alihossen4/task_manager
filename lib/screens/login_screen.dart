@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:task_management/screens/main_nav_screen.dart';
 import 'package:task_management/screens/signup_screen.dart';
 import 'package:task_management/widget/screen_bg.dart';
 
@@ -46,7 +47,9 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
               SizedBox(height: 12,),
-            FilledButton(onPressed: (){}, 
+            FilledButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> MainNavScreen()));
+            }, 
              style: FilledButton.styleFrom(iconColor: Colors.white,backgroundColor: Colors.green,
              iconSize: 30,padding: .symmetric(horizontal: 1,vertical: 12), 
              fixedSize: Size.fromWidth(double.maxFinite), 
