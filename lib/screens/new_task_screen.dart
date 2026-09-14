@@ -19,13 +19,24 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index){
-                return TaskCard();
+                return TaskCard(count:9,title: "new",);
               },
               separatorBuilder: (BuildContext context, int indext){
-                return SizedBox();
+                return SizedBox(width:MediaQuery.sizeOf(context).width/16,child: SizedBox());
               }, itemCount: 4),
+          ),
+          Expanded(
+            child: ListView.builder(itemCount:20,
+            itemBuilder: (context,index){
+              return ListTile(
+                title: Text("Text title"),
+                subtitle: Text("sub title"),
+              );
+            }
+            )
           )
         ],
+
       ),
     );
   }

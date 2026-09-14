@@ -37,12 +37,12 @@ class _MainNavScreenState extends State<MainNavScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
 
-            Text("Ali Hossen",style: Theme.of(context).textTheme.titleSmall!.copyWith(
-              color: Colors.white,
-            )),
-            Text("Email address",style: Theme.of(context).textTheme.titleSmall!.copyWith(
-              color: Colors.white
-            )),
+              Text("Ali Hossen",style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                color: Colors.white,
+              )),
+              Text("Email address",style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                color: Colors.white
+              )),
 
               ],
             )
