@@ -28,6 +28,7 @@ class _NewtaskAddScreenState extends State<NewtaskAddScreen> {
                 fontSize: 25,
               ), textAlign: TextAlign.center,),
               SizedBox(height: 25,),
+              
               TextFormField(
                 decoration: InputDecoration(
                 contentPadding: .all(8),
@@ -35,8 +36,8 @@ class _NewtaskAddScreenState extends State<NewtaskAddScreen> {
                 ),
               ),
                 SizedBox(height: 10,),
+
               TextFormField(
-                obscureText: true,
                 decoration: InputDecoration(
                   contentPadding: .symmetric(horizontal: 8, vertical: 30),
                   hintText: "Description",

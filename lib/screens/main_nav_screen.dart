@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_management/screens/cancel_task_screen.dart';
 import 'package:task_management/screens/completed_task_screen.dart';
-import 'package:task_management/screens/new_task_screen.dart';
+import 'package:task_management/screens/task_screen.dart';
 import 'package:task_management/screens/progress_task_screen.dart';
 
 class MainNavScreen extends StatefulWidget {
@@ -15,7 +15,7 @@ class _MainNavScreenState extends State<MainNavScreen> {
 
   int selectedIndex =0;
   List screens = [
-    NewTaskScreen(),
+    TaskScreen(),
     ProgressTaskScreen(),
     CompletedTaskScreen(),
     CancelTaskScreen(),
@@ -61,7 +61,7 @@ class _MainNavScreenState extends State<MainNavScreen> {
           });
         },
         destinations: [
-          NavigationDestination(icon: Icon(Icons.task), label: 'New',),
+          NavigationDestination(icon: Icon(Icons.task), label: 'Task',),
           NavigationDestination(icon: Icon(Icons.access_time_filled_rounded), label: 'Progress'),
           NavigationDestination(icon: Icon(Icons.task_alt), label: 'Completed'),
           NavigationDestination(icon: Icon(Icons.cancel), label: 'Cancel'),
