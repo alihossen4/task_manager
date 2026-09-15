@@ -11,7 +11,7 @@ class TaskCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 8),
         child: Column(
           children: [
             Text(count.toString(),style: Theme.of(context).textTheme.titleLarge,),

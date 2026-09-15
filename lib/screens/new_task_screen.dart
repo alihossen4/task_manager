@@ -13,7 +13,9 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade200,
       body: Column(
+        
         children: [
           SizedBox(
             height: 100,
@@ -29,9 +31,37 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
           Expanded(
             child: ListView.builder(itemCount:20,
             itemBuilder: (context,index){
-              return ListTile(
-                title: Text("Text title"),
-                subtitle: Text("sub title"),
+              return Card(
+                margin: .only(left: 3,right: 5),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      ListTile(
+                        title: Text("Text title"),
+                        subtitle: Column(
+                          children: [
+                            // Text("Ok"),
+                            // SizedBox(height: 5,),
+                            // Text("Date: 15/9/26"),
+                            Row(children: [
+                              Chip(label: Text("New",style: TextStyle(color: Colors.white, ),
+                              ),
+                              backgroundColor: Colors.blue,
+                              ),
+                              Spacer(),
+                              IconButton(icon: Icon(Icons.edit),onPressed: (){},color: Colors.green,),
+                              IconButton(icon: Icon(Icons.delete),onPressed: (){},color: Colors.redAccent,),
+                  
+                            ],)
+                          ],
+                  
+                        ),
+                      ),
+                      
+                    ],
+                  ),
+                ),
               );
             }
             )
