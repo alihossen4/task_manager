@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_management/screens/newtask_add_screen.dart';
 import 'package:task_management/widget/task_card.dart';
 
 class NewTaskScreen extends StatefulWidget {
@@ -36,8 +37,10 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
             )
           )
         ],
-
       ),
+      floatingActionButton: FloatingActionButton(backgroundColor: Colors.blue, foregroundColor: Colors.white, onPressed: (){
+        Navigator.push(context, MaterialPageRoute(builder: (context)=> NewtaskAddScreen()));
+      },child: Icon(Icons.add,),),
     );
   }
 }
