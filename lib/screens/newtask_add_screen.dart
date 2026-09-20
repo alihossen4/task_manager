@@ -28,7 +28,7 @@ class _NewtaskAddScreenState extends State<NewtaskAddScreen> {
                 fontSize: 25,
               ), textAlign: TextAlign.center,),
               SizedBox(height: 25,),
-              
+
               TextFormField(
                 decoration: InputDecoration(
                 contentPadding: .all(8),
@@ -46,7 +46,7 @@ class _NewtaskAddScreenState extends State<NewtaskAddScreen> {
               SizedBox(height: 15,),
               FilledButton(onPressed: (){
             
-              },child: Text("Add",style: TextStyle(fontSize: 20),)),
+              },child: Text("Add Task",style: TextStyle(fontSize: 20),)),
               ],
             ),
           ),

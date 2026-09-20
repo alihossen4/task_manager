@@ -12,6 +12,12 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
 
+  TextEditingController emailController = TextEditingController();
+  TextEditingController firstnameController = TextEditingController();
+  TextEditingController lastnameController = TextEditingController();
+  TextEditingController mobileController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   onTapMove(){
     Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginScreen()));
   }
@@ -22,86 +28,115 @@ class _SignUpScreenState extends State<SignUpScreen> {
       body: ScreenBG(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-            SizedBox(height: 150,),
-            Text("Join With Us", style: Theme.of(context).textTheme.titleLarge!.copyWith(
-              fontWeight: FontWeight.bold,
-              fontSize: 25,
-            )),
-            SizedBox(height: 5,),
-            
-            SizedBox(height: 25,),
-            TextFormField(
-              decoration: InputDecoration(
-              contentPadding: .all(8),
-                hintText: "Email",
-              ),
-            ),
-
-              SizedBox(height: 10,),
+          child: Form(
+            key: formKey,
+            child: Column(
+              children: [
+              SizedBox(height: 150,),
+              Text("Join With Us", style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+              )),
+              SizedBox(height: 5,),
+              
+              SizedBox(height: 25,),
               TextFormField(
-              decoration: InputDecoration(
-              contentPadding: .all(8),
-                hintText: "First Name",
-              ),
-            ),
-            
-              SizedBox(height: 10,),
-              TextFormField(
-              decoration: InputDecoration(
-              contentPadding: .all(8),
-                hintText: "Last Name",
-              ),
-            ),
-            
-              SizedBox(height: 10,),
-              TextFormField(
-              decoration: InputDecoration(
-              contentPadding: .all(8),
-                hintText: "Mobile",
-              ),
-            ),
-            
-              SizedBox(height: 10,),
-
-            TextFormField(
-              obscureText: true,
-              decoration: InputDecoration(
+                validator: (value){
+                  if(value==null || value.isEmpty){
+                    return "Please enter email";
+                  }else{
+                    return null;
+                  }
+                },
+                controller: emailController,
+                decoration: InputDecoration(
                 contentPadding: .all(8),
-                hintText: "Password",
-              ),
-            ),
-              SizedBox(height: 12,),
-            FilledButton(onPressed: (){}, 
-             style: FilledButton.styleFrom(iconColor: Colors.white,backgroundColor: Colors.green,
-             iconSize: 30,padding: .symmetric(horizontal: 1,vertical: 12), 
-             fixedSize: Size.fromWidth(double.maxFinite), 
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              )
-             ),
-             child: Icon(Icons.arrow_circle_right_outlined),),
-              SizedBox(height: 12,),
-            Column(children: [
-
-              RichText(
-                
-                text: TextSpan(
-                  text: "Already Have an Account? ",
-                  style: TextStyle(color: Colors.black,fontSize: 16),
-                  children: [
-                    TextSpan(
-                      text: "Sign In",
-                      style: TextStyle(color: Colors.green.shade300,fontSize: 16),
-                      recognizer: TapGestureRecognizer()..onTap =onTapMove
-                    )
-                  ]
+                  hintText: "Email",
                 ),
-                 
               ),
-            ],)
-          ],),
+            
+                SizedBox(height: 10,),
+                TextFormField(
+                  validator: (value){
+                  if(value==null || value.isEmpty){
+                    return "Please enter name";
+                  }else{
+                    return null;
+                  }
+                },
+                  controller: firstnameController,
+                decoration: InputDecoration(
+                contentPadding: .all(8),
+                  hintText: "First Name",
+                ),
+              ),
+              
+                SizedBox(height: 10,),
+                TextFormField(
+                controller: lastnameController,
+                decoration: InputDecoration(
+                contentPadding: .all(8),
+                  hintText: "Last Name",
+                ),
+              ),
+              
+                SizedBox(height: 10,),
+                TextFormField(
+                  controller: mobileController,
+                decoration: InputDecoration(
+                contentPadding: .all(8),
+                  hintText: "Mobile",
+                ),
+              ),
+              
+                SizedBox(height: 10,),
+            
+              TextFormField(
+                obscureText: true,
+                validator: (value){
+                  if(value==null || value.isEmpty){
+                    return "Please enter password";
+                  }else{
+                    return null;
+                  }
+                },
+                controller: passwordController,
+                decoration: InputDecoration(
+                  contentPadding: .all(8),
+                  hintText: "Password",
+                ),
+              ),
+                SizedBox(height: 12,),
+              FilledButton(onPressed: (){}, 
+               style: FilledButton.styleFrom(iconColor: Colors.white,backgroundColor: Colors.green,
+               iconSize: 30,padding: .symmetric(horizontal: 1,vertical: 12), 
+               fixedSize: Size.fromWidth(double.maxFinite), 
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                )
+               ),
+               child: Icon(Icons.arrow_circle_right_outlined),),
+                SizedBox(height: 12,),
+              Column(children: [
+            
+                RichText(
+                  
+                  text: TextSpan(
+                    text: "Already Have an Account? ",
+                    style: TextStyle(color: Colors.black,fontSize: 16),
+                    children: [
+                      TextSpan(
+                        text: "Sign In",
+                        style: TextStyle(color: Colors.green.shade300,fontSize: 16),
+                        recognizer: TapGestureRecognizer()..onTap =onTapMove
+                      )
+                    ]
+                  ),
+                   
+                ),
+              ],)
+            ],),
+          ),
         ),
       ),
     );
