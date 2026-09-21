@@ -1,6 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:task_management/model/api_response.dart';
 import 'package:task_management/screens/login_screen.dart';
+import 'package:task_management/service/api_caller.dart';
+import 'package:task_management/service/urls.dart';
 import 'package:task_management/widget/screen_bg.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -20,6 +23,40 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   onTapMove(){
     Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginScreen()));
+  }
+  bool emailValidate =false;
+  bool firstnameValidate = false;
+  bool passwordValidate = false;
+  Future<void> onTapSignUp()async{
+    if(emailController.text.isNotEmpty && firstnameController.text.isNotEmpty && passwordController.text.isNotEmpty){
+    final ApiResponse response = await ApiCaller.postRequest(uri: ApiUrl.signupUrl,body:{
+      "email": emailController.text,
+      "firstname": firstnameController.text,
+      "lastname": lastnameController.text,
+      "mobile": mobileController.text,
+      "password": passwordController.text,
+
+    } );
+    if(response.isSuccess){
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> LoginScreen()));
+
+    }
+    }
+    else if(emailController.text.isEmpty){
+    emailValidate=true;
+    }
+  else if(firstnameController.text.isEmpty){
+      firstnameValidate = true;
+    }else if(passwordController.text.isEmpty){
+      passwordValidate= true;
+    }
+    
+    else{
+      firstnameValidate=true;
+      emailValidate=true;
+      passwordValidate=true;
+
+    }
   }
 
   @override
@@ -52,6 +89,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 decoration: InputDecoration(
                 contentPadding: .all(8),
                   hintText: "Email",
+                  errorText: emailValidate? "Please Enter Email": "",
                 ),
               ),
             
@@ -68,6 +106,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 decoration: InputDecoration(
                 contentPadding: .all(8),
                   hintText: "First Name",
+                  errorText: firstnameValidate? "Please enter name": "",
                 ),
               ),
               
@@ -104,10 +143,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 decoration: InputDecoration(
                   contentPadding: .all(8),
                   hintText: "Password",
+                  errorText: passwordValidate? "Please Enter Password" : "",
                 ),
               ),
                 SizedBox(height: 12,),
-              FilledButton(onPressed: (){}, 
+              FilledButton(onPressed: (){
+                onTapSignUp();
+              }, 
                style: FilledButton.styleFrom(iconColor: Colors.white,backgroundColor: Colors.green,
                iconSize: 30,padding: .symmetric(horizontal: 1,vertical: 12), 
                fixedSize: Size.fromWidth(double.maxFinite), 
@@ -115,7 +157,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   borderRadius: BorderRadius.circular(8),
                 )
                ),
-               child: Icon(Icons.arrow_circle_right_outlined),),
+               child: Text("Sign Up",),
+               
+               ),
                 SizedBox(height: 12,),
               Column(children: [
             
