@@ -14,7 +14,9 @@ class _ProgressTaskScreenState extends State<ProgressTaskScreen> {
     return Scaffold(
       body: ListView.builder(itemCount:20,
             itemBuilder: (context,index){
-              return TaskCard();
+              return TaskCard(
+                editIcon: Icons.timelapse,
+              );
             }
             ),
     );

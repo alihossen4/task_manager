@@ -14,7 +14,9 @@ class _CompletedTaskScreenState extends State<CompletedTaskScreen> {
     return Scaffold(
       body: ListView.builder(itemCount:20,
             itemBuilder: (context,index){
-              return TaskCard();
+              return TaskCard(
+                editIcon: Icons.task_alt_sharp,
+              );
             }
           ),
     );

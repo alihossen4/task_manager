@@ -31,7 +31,10 @@ class _TaskScreenState extends State<TaskScreen> {
           Expanded(
             child: ListView.builder(itemCount:20,
             itemBuilder: (context,index){
-              return TaskCard();
+              return TaskCard(
+                editIcon: Icons.edit,
+                taskIcon: Icons.delete,
+              );
             }
             )
           )

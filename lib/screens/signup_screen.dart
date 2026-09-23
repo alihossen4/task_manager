@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:task_management/model/api_response.dart';
@@ -5,7 +7,7 @@ import 'package:task_management/screens/login_screen.dart';
 import 'package:task_management/service/api_caller.dart';
 import 'package:task_management/service/urls.dart';
 import 'package:task_management/widget/screen_bg.dart';
-
+import 'package:http/http.dart' as http;
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
@@ -29,32 +31,62 @@ class _SignUpScreenState extends State<SignUpScreen> {
   bool passwordValidate = false;
   Future<void> onTapSignUp()async{
     if(emailController.text.isNotEmpty && firstnameController.text.isNotEmpty && passwordController.text.isNotEmpty){
-    final ApiResponse response = await ApiCaller.postRequest(uri: ApiUrl.signupUrl,body:{
+    // final ApiResponse response = await ApiCaller.postRequest(uri: ApiUrl.signupUrl,body:{
+    //   "email": emailController.text,
+    //   "firstname": firstnameController.text,
+    //   "lastname": lastnameController.text,
+    //   "mobile": mobileController.text,
+    //   "password": passwordController.text,
+
+    // } );
+    // if(response.isSuccess){
+    //    emailValidate =false;
+    // firstnameValidate = false;
+    // passwordValidate = false;
+
+    // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> LoginScreen()));
+
+    // }
+    var regBody = {
       "email": emailController.text,
       "firstname": firstnameController.text,
       "lastname": lastnameController.text,
       "mobile": mobileController.text,
       "password": passwordController.text,
 
-    } );
-    if(response.isSuccess){
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> LoginScreen()));
+    };
+    var response = await http.post(Uri.parse("http://localhost:8000/signup"), 
+      headers: {"Content-Type": "Application/json"},
+      body: jsonEncode(regBody),
+    );
 
-    }
+    var jsonResponse = jsonDecode(response.body);
+    print(jsonResponse['status']);
     }
     else if(emailController.text.isEmpty){
+      setState((){
+
     emailValidate=true;
+      });
     }
   else if(firstnameController.text.isEmpty){
+    setState((){
+
       firstnameValidate = true;
+      });
     }else if(passwordController.text.isEmpty){
+      setState((){
+
       passwordValidate= true;
+      });
     }
     
     else{
+      setState((){
       firstnameValidate=true;
       emailValidate=true;
       passwordValidate=true;
+      });
 
     }
   }

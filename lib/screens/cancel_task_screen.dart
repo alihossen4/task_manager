@@ -14,7 +14,9 @@ class _CancelTaskScreenState extends State<CancelTaskScreen> {
     return Scaffold(
       body: ListView.builder(itemCount:20,
             itemBuilder: (context,index){
-              return TaskCard();
+              return TaskCard(
+                editIcon: Icons.cancel_sharp,
+              );
             }
           ),
     );

@@ -1,7 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:task_management/screens/main_nav_screen.dart';
 import 'package:task_management/screens/signup_screen.dart';
+import 'package:task_management/screens/task_screen.dart';
+import 'package:task_management/service/urls.dart';
 import 'package:task_management/widget/screen_bg.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -12,7 +15,18 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
+  Future<void> onLogin()async{
+    if(emailController.text.isNotEmpty && passwordController.text.isNotEmpty){
+      
+      var response = await http.get(Uri.parse(ApiUrl.loginUrl));
+      if(response.statusCode == 200|| response.statusCode==201){
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> TaskScreen()));
+      }
+    }
+  }
   onTapMove(){
     Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUpScreen()));
   }

@@ -1,9 +1,17 @@
 
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class TaskCard extends StatelessWidget {
-  const TaskCard({
+    final IconData editIcon;
+    final IconData? taskIcon;
+
+   TaskCard({
     super.key,
+
+    required this.editIcon,
+    this.taskIcon
+
   });
 
   @override
@@ -36,8 +44,8 @@ class TaskCard extends StatelessWidget {
                     backgroundColor: Colors.blue,
                     ),
                     Spacer(),
-                    IconButton(icon: Icon(Icons.edit),onPressed: (){},color: Colors.green,),
-                    IconButton(icon: Icon(Icons.delete),onPressed: (){},color: Colors.redAccent,),
+                    IconButton(icon: Icon(editIcon),onPressed: (){},color: Colors.green,),
+                    IconButton(icon: Icon(taskIcon),onPressed: (){},color: Colors.redAccent,),
         
                   ],)
                 ],
