@@ -1,11 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:task_management/screens/main_nav_screen.dart';
-import 'package:task_management/screens/signup_screen.dart';
-import 'package:task_management/screens/task_screen.dart';
+import 'package:task_management/presentation/screens/main_nav_screen.dart';
+import 'package:task_management/presentation/screens/signup_screen.dart';
+import 'package:task_management/presentation/screens/task_screen.dart';
 import 'package:task_management/service/urls.dart';
-import 'package:task_management/widget/screen_bg.dart';
+import 'package:task_management/presentation/widget/screen_bg.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

@@ -3,10 +3,10 @@ import 'dart:convert';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:task_management/model/api_response.dart';
-import 'package:task_management/screens/login_screen.dart';
+import 'package:task_management/presentation/screens/login_screen.dart';
 import 'package:task_management/service/api_caller.dart';
 import 'package:task_management/service/urls.dart';
-import 'package:task_management/widget/screen_bg.dart';
+import 'package:task_management/presentation/widget/screen_bg.dart';
 import 'package:http/http.dart' as http;
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});

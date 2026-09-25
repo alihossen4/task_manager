@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:task_management/screens/cancel_task_screen.dart';
-import 'package:task_management/screens/completed_task_screen.dart';
-import 'package:task_management/screens/task_screen.dart';
-import 'package:task_management/screens/progress_task_screen.dart';
+import 'package:task_management/presentation/screens/cancel_task_screen.dart';
+import 'package:task_management/presentation/screens/completed_task_screen.dart';
+import 'package:task_management/presentation/screens/task_screen.dart';
+import 'package:task_management/presentation/screens/progress_task_screen.dart';
 
 class MainNavScreen extends StatefulWidget {
   const MainNavScreen({super.key});

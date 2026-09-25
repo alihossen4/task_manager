@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:task_management/screens/login_screen.dart';
+import 'package:task_management/presentation/screens/login_screen.dart';
 import 'package:task_management/utils/asset_path.dart';
-import 'package:task_management/widget/screen_bg.dart';
+import 'package:task_management/presentation/widget/screen_bg.dart';
 
 
 
